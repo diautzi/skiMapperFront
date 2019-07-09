@@ -1,0 +1,96 @@
+
+
+/*///////////////////ABOUT/////////////////// */
+.about {
+  background-image: url("http://www.travelalltogether.com/wp-content/uploads/2014/03/USA-Ski-Resorts-Colorado-Beaver-Creek-Powder-Ski.jpg");
+  background-size: cover;
+  min-height: 100vh
+}
+
+.about h1 {
+  margin: 0;
+   position: absolute;
+   top: 20%;
+   left: 50%;
+   margin-right: -50%;
+   transform: translate(-50%, -50%)
+}
+
+.about button {
+   margin: 0;
+   background: blue;
+   position: absolute;
+   top: 30%;
+   left: 50%;
+   margin-right: -50%;
+   transform: translate(-50%, -50%)
+}
+
+.about-card {
+height: auto;
+margin-top: 150px;
+margin-bottom: auto;
+padding: 10px;
+width: 1000px;
+background-color: rgba(0,0,0,0.5) !important;
+}
+
+.about-msg {
+  color: white;
+
+}
+
+/*///////////Trail Cards//////////////*/
+
+.hike-card {
+  color: white;
+  display: inline-block;
+  height: 265px;
+  margin: 2.5%;
+  float: left;
+  position: relative;
+  width: 100%;
+}
+
+.hike-card-image {
+  width: 100%;
+  height: 65%;
+}
+
+
+/*//////////////////User profile/////////////*/
+img.profile-pic {
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.profile-container {
+  margin-top: 60px;
+  margin-bottom: 25px;
+}
+
+.user-data {
+  margin-top: 15px;
+}
+
+.name {
+  font-size: 35px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  color: #FF0000;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.user-location {
+  margin-left: 8px;
+  font-family: 'Open Sans', sans-serif;
+  color: #FF0000;
+}
+
+.user-registration-date {
+  margin-bottom: 30px;
+  font-family: 'Open Sans', sans-serif;
+  color: #FF0000;
+}
