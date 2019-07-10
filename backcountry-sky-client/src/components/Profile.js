@@ -3,31 +3,14 @@ import React, { Component } from "react";
 import style from "../App.css";
 import { Button, Card, Image } from "semantic-ui-react"
 import TrailDetails from "../components/TrailDetails"
+import { NavLink } from 'react-router-dom';
+import UpdateProfile from "../containers/UpdateProfile"
 
 class Profile extends Component {
 
   state = {
-    myTrails: []
-  }
-
-  difficulty = () => {
-    let level;
-    if (this.state.myTrails.difficulty === "blue") {
-      level = "Blue";
-    } else if (this.state.trail.difficulty === "greenBlue") {
-      level = "Intermediate Green";
-    } else if (this.state.trail.difficulty === "blueBlack") {
-      level = "Intermediate Blue";
-    } else if (this.state.trail.difficulty === "black") {
-      level = "Black 🔷";
-    } else if (this.state.trail.difficulty === "dblack") {
-      level = "Double Black 🔷";
-    } else if (this.state.trail.difficulty === "green") {
-      level = "Easy"
-    } else {
-      level = "N/A"
-    }
-    return level;
+    myTrails: [],
+    currentUser: this.props.currentUser
   }
 
   createdAt = (date) => {
@@ -45,6 +28,7 @@ class Profile extends Component {
 
    return day + ' ' + monthNames[monthIndex] + ' ' + year;
  }
+
 componentDidMount() {
   fetch("http://localhost:3000/api/v1/completed_trails")
   .then(resp => resp.json())
@@ -73,33 +57,35 @@ componentDidMount() {
     this.props.history.push("/login")
   }
 
-  // displayFavoriteTrail = () => {
-  //   {this.state.myTrails.map(data =>
-  //     <Card>
-  //       <Image src=`${data.trail_image}` wrapped ui={false} />
-  //       <Card.Content>
-  //         <Card.Header>{data.trail_name}</Card.Header>
-  //         <Card.Meta>Joined in 2016</Card.Meta>
-  //         <Card.Description>
-  //           Daniel is a comedian living in Nashville.
-  //         </Card.Description>
-  //       </Card.Content>
-  //     </Card>
-  //   )}
-  // }
+  deleteTrail = (id) => {
+    fetch(`http://localhost:3000/api/v1/completed_trails/${id}`, {
+      method: "DELETE",
+      headers: {
+        'Content-Type': "application/json",
+        'Accept': "application/json"
+      },
+      body: JSON.stringify({
+        id: id
+        })
+      })
+      .then(resp => resp.json())
+      .then(res => this.setState({
+        myTrails: this.state.myTrails.filter(trail => trail.id !== id)
+      }))
+  }
 
 
   render() {
-    console.log(this.props.currentUser)
-    console.log(this.state.myTrails)
    const currentUser = this.props.currentUser;
 
     let userImage;
     if (!!currentUser.image) {
       userImage = currentUser.image;
     } else {
-      userImage = process.env.PUBLIC_URL + '/images/no_image.png';
+      userImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuz4ys13YZ-pwKXvCP-Hq_39sU9ZhHhM-JLPreXfAOHQKvzzcl';
     }
+
+
     return (
       <div>
         <div style={{textAlign: "center"}}>
@@ -107,31 +93,34 @@ componentDidMount() {
             <img className="profile-pic" src={ userImage } alt="Add-a-profile-pic" />
             <div className='user-data'>
               <div className="name">{currentUser.name}</div><br></br>
-              <div className="user-location" > 🌎 { currentUser.location } </div><br></br>
+              <div className="user-location" > 🌎 { currentUser.location ? currentUser.location : "" } </div><br></br>
               <div className="user-registration-date">Member since: { this.createdAt(currentUser.created_at) }</div>
+                <div className="user-registration-date"> Conquered: { this.state.myTrails.length} Peaks </div>
               <br></br>
               <Card.Content extra>
-                <div className='ui two buttons'>
-                  <Button basic color='green'>
+                <div >
+                <NavLink to="/edit" exact>
+                  <Button  size='large'  color='green'>
                     Update Account
                   </Button>
-                  <Button basic color='red' onClick={(e) => this.deleteAccount(e)}>
+                </NavLink>
+                  <Button size="large" color='red' onClick={(e) => this.deleteAccount(e)}>
                    Delete Account
                   </Button>
                 </div>
               </Card.Content>
-              <h3>My favorite Trails</h3>
+
+              {this.state.myTrails.length > 0 ? <h3 className="name">My favorite Trails</h3> : ""}
+
             </div>
           </div>
         </div>
-        {this.state.myTrails.map(data =>
+        {this.state.myTrails.map(trail =>
           <div class="ui centered card">
-              <Card
-                image={data.trail_image}
-                header={data.trail_name}
-                meta={this.difficulty()}
-              />
-            <Button inverted> Delete </Button>
+            <Card
+                image={trail.trail_image}
+                header={trail.trail_name} />
+            <Button inverted onClick={() => this.deleteTrail(trail.id)}> Delete </Button>
         </div>)}
       </div>
     )

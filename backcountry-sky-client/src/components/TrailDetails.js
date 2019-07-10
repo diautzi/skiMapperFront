@@ -2,7 +2,8 @@
 import React, {Component} from "react";
 import Profile from "../components/Profile";
 import { NavLink } from 'react-router-dom';
-import {Card, Icon, Rating, Grid, Form, Button, Image, Input} from "semantic-ui-react"
+import {Card, Icon, Rating, Grid, Form, Button, Segment, Input, Image} from "semantic-ui-react"
+import MapContainer from "../components/MapContainer"
 
 
 class TrailDetails extends Component {
@@ -132,21 +133,23 @@ class TrailDetails extends Component {
     console.log(this.state.content)
     return(
        <div>
-         <div style={{textAlign: "center"}}>
-
-           <div>
+          <MapContainer trail={this.state.trail} />
+          <div style={{textAlign: "center"}}>
               <h2>{this.state.trail.name}</h2>
-              <strong>  Difficulty: {this.difficulty()} <br></br> </strong>
-           </div>
-           <div>
-              <img style={{ borderRadius : "8px", height: "40%", width: "60%", marginLeft: "25px"}} alt="oh no!" src= {this.state.trail.imgMedium} />
-              <div>
+                <strong>  Difficulty: {this.difficulty()} <br></br> </strong>
+          </div>
+          <div>
+            <div>
+              <Image style={{ borderRadius : "8px", height: "20%", width: "40%", marginLeft: "55px"}} alt="oh no!" src= {this.state.trail.imgMedium} />
+            </div>
+            <div style={{textAlign: "center"}}>
+            <Segment>
               { this.props.currentUser ?
                 <>
                 <Button
                   onClick={this.addToFavoritesClick}
                   color={this.state.buttonColor}
-                  content='Add it to your bucket list ..'
+                  content='Add to Your Completed Trails ..'
                   icon='heart'
                   label={{ basic: true, color: 'red'}}
                 />
@@ -159,14 +162,15 @@ class TrailDetails extends Component {
                  <Button color="red" >Explore some more</Button>
                 </NavLink>
               }
-
-              </div>
+            </Segment>
+          </div>
+          <div style={{textAlign: "center"}}>
               <h2><blockquote>"{this.state.trail.summary}"</blockquote></h2>
-              <h3>Location: {this.state.trail.location}  </h3>
+              <h3>🌎 Location: {this.state.trail.location}  </h3>
               <div>
                 <h3>
-                  Length: {this.state.trail.length} miles <br></br>
-                  ⛰️ Ascent: {this.state.trail.ascent} |  Descent: {this.state.trail.descent} <br></br>
+                  Length: {this.state.trail.length} Miles <br></br>
+                  ⛰️ Ascent: {this.state.trail.ascent}' |   ⛰️  Descent: {this.state.trail.descent}' <br></br>
                 </h3>
               </div>
               <div>
@@ -175,23 +179,26 @@ class TrailDetails extends Component {
                  </h4>
               </div>
             </div>
-            <div class="conditions">
-              <h4>Conditions:</h4>
+            <div class="conditions" style={{marginLeft: "20px"}}>
+              <h3 >Conditions:</h3>
                   <p> {this.state.trail.conditionStatus} </p>
                   <p> {this.state.trail.conditionDetails} </p>
             </div>
-            <div class="comments">
+            <br></br>
+            <div class="comments" style={{marginLeft: "20px"}}>
             <Form onSubmit={this.handleSubmit} >
-                <Form.Input onChange={this.handleChange} type="text" placeholder='Leave a thought...' name='content' value={this.state.content}/>
+                <input onChange={this.handleChange} type="text" placeholder='Leave a thought...' name='content' value={this.state.content}/>
                 <Form.Button>Submit</Form.Button>
             </Form>
             </div>
-            <h2>Comments</h2>
+            <br></br>
+            <br></br>
+            {this.state.comments.length >0 ? <h2 style={{marginLeft: "20px", fontColor: "red"}}>Comments</h2> : ""}
+
             <div key={this.state.comments.id}>
             {this.state.comments.map(comment =>
               <Card style={{marginLeft: "40px"}}>
-                {!!this.props.currentUser}
-                <Card.Content >
+                {!!this.props.currentUser ? <Card.Content >
                   <Image floated='left' size='mini' src={this.props.currentUser.image} />
                   <Card.Header>{this.props.currentUser.name}</Card.Header>
                   <Card.Meta>Posted at: {comment.created_at.slice(11, 19)} on  {comment.created_at.slice(0, 10)}</Card.Meta>
@@ -199,10 +206,21 @@ class TrailDetails extends Component {
                     {comment.content}
                   </Card.Description>
                 </Card.Content>
+                :
+                <Card.Content >
+                  <Image floated='left' size='mini' src={comment.user.image} />
+                  <Card.Header>{comment.user.name}</Card.Header>
+                  <Card.Meta>Posted at: {comment.created_at.slice(11, 19)} on  {comment.created_at.slice(0, 10)}</Card.Meta>
+                  <Card.Description>
+                    {comment.content}
+                  </Card.Description>
+                </Card.Content>
+              }
+
               </Card>
             )}
             </div>
-         </div>
+          </div>
         </div>
      )
   }

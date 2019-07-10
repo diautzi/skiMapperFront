@@ -4,20 +4,22 @@ import {Card, Icon, Rating, Button } from "semantic-ui-react"
 import { NavLink } from 'react-router-dom';
 import { style } from "../App.css"
 
-const TrailCard = (props) => {
-  const difficulty = () => {
+
+class TrailCard extends React.Component {
+
+  difficulty = () => {
     let level;
-    if (props.trail.difficulty === "blue") {
+    if (this.props.trail.difficulty === "blue") {
       level = "Blue";
-    } else if (props.trail.difficulty === "greenBlue") {
+    } else if (this.props.trail.difficulty === "greenBlue") {
       level = "Intermediate Green";
-    } else if (props.trail.difficulty === "blueBlack") {
+    } else if (this.props.trail.difficulty === "blueBlack") {
       level = "Intermediate Blue";
-    } else if (props.trail.difficulty === "black") {
+    } else if (this.props.trail.difficulty === "black") {
       level = "Black 🔷";
-    } else if (props.trail.difficulty === "dblack") {
+    } else if (this.props.trail.difficulty === "dblack") {
       level = "Double Black 🔷";
-    } else if (props.trail.difficulty === "green") {
+    } else if (this.props.trail.difficulty === "green") {
       level = "Easy"
     } else {
       level = "N/A"
@@ -26,35 +28,38 @@ const TrailCard = (props) => {
   }
 
 
-  return (
-    <Card style= {{margin: "10px"}}>
-      <div style={{textAlign: "center"}}>
-        <div className= "image" >
-          <img style={{ borderRadius : "8px", height: "140px", width: "100%", padding: "1%"}} alt="oh no!" src= {props.trail.imgSmall}/>
-        </div>
-        <div className="content">
-          <div className="header">
-            <h4>{props.trail.name}</h4>
-            <div className="extra content">
-              <span>
-                <strong> Difficulty: {this.difficulty()} </strong>
-              </span>
+  render() {
+    return (
+      <Card style= {{margin: "10px"}}>
+        <div style={{textAlign: "center"}}>
+          <div className= "image" >
+            <img style={{ borderRadius : "8px", height: "140px", width: "100%", padding: "1%"}} alt="oh no!" src= {this.props.trail.imgSmall}/>
+          </div>
+          <div className="content">
+            <div className="header">
+              <h4>{this.props.trail.name}</h4>
+              <div className="extra content">
+                <span>
+                  <strong> Difficulty: {this.difficulty()} </strong>
+                </span>
+            </div>
+          </div>
+          <div className="content" >
+            <div className="header"><strong>Location: </strong> {this.props.trail.location}</div>
+          </div>
+          <div>
+            <span>
+              <strong>Rating: </strong>
+                {this.props.trail.stars} <Rating icon='star' defaultRating={5} />
+            </span>
+          </div>
           </div>
         </div>
-        <div className="content" >
-          <div className="header"><strong>Location: </strong> {props.trail.location}</div>
-        </div>
-        <div>
-          <span>
-            <strong>Rating: </strong>
-              {props.trail.stars} <Rating icon='star' defaultRating={5} />
-          </span>
-        </div>
-        </div>
-      </div>
-      <Button color="red" center >More details</Button>
-    </Card>
-  );
+        <Button color="red" center >More details</Button>
+      </Card>
+    );
+  }
+
 };
 
 export default TrailCard;
