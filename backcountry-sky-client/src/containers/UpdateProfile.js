@@ -7,6 +7,7 @@ class UpdateProfile extends Component {
   constructor(props){
     super(props)
     this.state = {
+      currentUser: this.props.currentUser,
       name: this.props.currentUser.name,
       image: this.props.currentUser.image,
       location: this.props.currentUser.location,
@@ -20,7 +21,6 @@ class UpdateProfile extends Component {
   }
 
   submitForm = (e, id) => {
-    this.props.updateProfile(e)
     e.preventDefault();
     id = `${this.props.currentUser.id}`
     // console.log(id)
@@ -41,7 +41,6 @@ class UpdateProfile extends Component {
      .then(resp => resp.json())
      .then(resp => this.setState({
        currentUser: resp }))
-
   }
 
 
@@ -50,7 +49,7 @@ class UpdateProfile extends Component {
      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
        <Grid.Column style={{ maxWidth: 450 }}>
          <Header as='h2' color='red' textAlign='center'>
-           <Image src={this.props.currentUser.image} /> Update Your Account
+           <Image src={this.state.currentUser.image} /> Update Your Account
          </Header>
          <Form size='large' onSubmit={this.submitForm}>
            <Segment stacked>
