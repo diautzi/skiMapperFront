@@ -27,7 +27,6 @@ export class MapContainer extends Component {
   };
 
   render() {
-    console.log(this.props.trail)
     return (
       <CurrentLocation
         trail={this.props.trail}
@@ -50,5 +49,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyBfb2lRIvvfcNVMcdaD20WngdhpjzL2VQ8'
+  apiKey: 'AIzaSyAZj601hzDKw5Lyakz3rAAWU4X9DxA63Cc'
 })(MapContainer);

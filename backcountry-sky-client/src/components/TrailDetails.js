@@ -133,7 +133,7 @@ class TrailDetails extends Component {
     console.log(this.state.content)
     return(
        <div>
-          <div><MapContainer trail={this.state.trail} /></div>
+          <div><MapContainer trail={this.state.trail}/></div>
           <div style={{textAlign: "center"}}>
               <h2>{this.state.trail.name}</h2>
                 <strong>  Difficulty: {this.difficulty()} <br></br> </strong>

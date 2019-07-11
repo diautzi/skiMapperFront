@@ -113,26 +113,33 @@ export class CurrentLocation extends React.Component {
    }
 
    render() {
+
+     let latitude = this.props.trail.latitude
+     console.log(latitude)
+
+     let longitude = this.props.trail.longitude
+     console.log(longitude)
+
      const style = Object.assign({}, mapStyles.map);
-    return (
-      <div>
-        <div style={style} ref="map">
-          Loading map...
-        </div>
-        {this.renderChildren()}
-      </div>
-    );
+        return (
+          <div>
+            <div style={style} ref="map">
+              Loading map...
+            </div>
+            {this.renderChildren()}
+          </div>
+        );
+      }
+
   }
+  export default CurrentLocation;
 
-}
-export default CurrentLocation;
-
-CurrentLocation.defaultProps = {
-  zoom: 14,
-  initialCenter: {
-    lat: 38.999983,
-    lng: -105.549558
-  },
-  centerAroundCurrentLocation: false,
-  visible: true
-};
+  CurrentLocation.defaultProps = {
+    zoom: 14,
+    initialCenter: {
+      lat: 38.999983,
+      lng: 105.549558
+    },
+    centerAroundCurrentLocation: false,
+    visible: true
+  };
