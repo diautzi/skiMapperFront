@@ -1,1 +1,2 @@
 # SkiMapperFront
+Capstone Project - Frontend
