@@ -10,9 +10,9 @@ class  About extends Component {
   render() {
     return(
       <div className="about">
-        <h1 style={{color: "red", textAlign: "center"}}>"WELCOME TO ⛷️MAPPER! <br></br> LIVE YOUR LIFE, AND ENJOY LIVING IT"</h1>
+        <h1 style={{marginTop: "20px", color: "black", textAlign: "center"}}>"WELCOME TO ⛷️MAPPER! <br></br> LIVE YOUR LIFE, AND ENJOY LIVING IT"</h1>
         <NavLink to="/home" exact >
-          <Button center color="red" className="explore-button"> Start your adventure </Button>
+          <Button  color="black" className="explore-button"> Start your adventure </Button>
         </NavLink>
       </div>
     )

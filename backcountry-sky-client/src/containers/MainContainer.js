@@ -16,7 +16,7 @@ class MainContainer extends Component {
       trails: [],
       search: ""
     }
-     this.server = "http://localhost:3000/api/v1/"
+     this.server = "http://localhost:3000//api/v1/trails"
   }
 
   getSearchInput = (e, {value} ) => {
@@ -26,7 +26,7 @@ class MainContainer extends Component {
   }
 
    componentDidMount() {
-     fetch(this.server + "trails")
+     fetch("http://localhost:3000//api/v1/trails")
      .then(resp => resp.json())
      .then(data => this.setState({
        trails: data.trails
