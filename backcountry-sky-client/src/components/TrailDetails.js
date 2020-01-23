@@ -130,15 +130,18 @@ class TrailDetails extends Component {
 
 
   render(){
+    const trail = this.state.trail
+    const showImage = !!trail.imgMedium ? trail.imgMedium : process.env.PUBLIC_URL + 'https://cdn.shopify.com/s/files/1/0231/7685/t/3/assets/no-image-available.png?2214404492633272863';
+
     return(
        <div>
-          <div class= "map"><MapContainer trail={this.state.trail}/></div>
+          <div class= "map"><MapContainer trail={trail}/></div>
           <div style={{textAlign: "center"}}>
-            <h1>{this.state.trail.name}</h1>
+            <h1>{trail.name}</h1>
             <strong> Difficulty: { this.difficulty() } </strong>
           </div>
           <div>
-            <img className="trail-details-image" alt="oh no!" src= {this.state.trail.imgMedium} />
+            <img className="trail-details-image" alt="oh no!" src= { showImage } />
             <div style={{textAlign: "center"}}>
             <Segment>
               { this.props.currentUser ?
@@ -170,16 +173,16 @@ class TrailDetails extends Component {
             </Segment>
           </div>
           <div style={{textAlign: "center"}}>
-            <h2><blockquote>"{this.state.trail.summary}"</blockquote></h2>
-            <h2>🌎 Location: {this.state.trail.location}  </h2>
-            <h3>Length: {this.state.trail.length} Miles </h3><br></br>
-            <h3>Descent ⛰️: {this.state.trail.descent}' </h3><br></br>
-            <h4>Rating: {this.state.trail.stars} <Rating icon='star' defaultRating={5}/></h4>
+            <h2><blockquote>"{trail.summary}"</blockquote></h2>
+            <h2>🌎 Location: {trail.location}  </h2>
+            <h3>Length: {trail.length} Miles </h3><br></br>
+            <h3>Descent ⛰️: {trail.descent}' </h3><br></br>
+            <h4>Rating: {trail.stars} <Rating icon='star' defaultRating={5}/></h4>
           </div>
           <div class="conditions">
             <h3 >Conditions:</h3>
-              <p> {this.state.trail.conditionStatus} </p>
-              <p> {this.state.trail.conditionDetails} </p>
+              <p> {trail.conditionStatus} </p>
+              <p> {trail.conditionDetails} </p>
           </div>
           <br></br>
           <div class="comments">
@@ -193,7 +196,7 @@ class TrailDetails extends Component {
           </div>
           <br></br>
           <br></br>
-          
+
           {this.state.comments.length >0 ? <h2 style={{marginLeft: "20px", fontColor: "red"}}>Comments</h2> : ""}
           <div key={this.state.comments.id}>
             {this.state.comments.map(comment =>

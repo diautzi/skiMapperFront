@@ -17,43 +17,27 @@ class  NavBar extends Component{
   render() {
     const { activeItem } = this.state
     return (
-      <div>
+      <Segment inverted vertical>
         <Menu inverted color="red" pointing secondary>
-          <NavLink to="/" exact className="item">
-            <Menu.Item className="left aligned"
-              name="About"/>
-          </NavLink>
-          <NavLink to="/home" exact className="item">
-            <Menu.Item className="left aligned"
-              name="Explore"/>
-          </NavLink>
+          <NavLink to="/" exact className="item">About</NavLink>
+          <NavLink to="/home" exact className="item">Explore</NavLink>
           { !this.props.currentUser ?
               <Menu.Menu position="right" className="item">
-                <NavLink to="/login" exact className="item" className="item">
-                  <Menu.Item  className="right aligned"
-                    name="Login"/>
-                </NavLink>
-                <NavLink to="/signup" exact className="item">
-                  <Menu.Item  className="right aligned"
-                    name="SignUp"/>
-                </NavLink>
+                <NavLink to="/login" exact lassName="item">Login</NavLink>
+                <NavLink to="/signup" exact className="item">SignUp</NavLink>
               </Menu.Menu>
               :
               <Menu.Menu position="right">
                   <Menu.Item>
                    {`Welcome, ${this.props.currentUser.name}!`}
                  </Menu.Item>
-                 <Menu.Item  className="item" onClick={this.props.logout}>
+                 <NavLink className="item" onClick={this.props.logout}>
                    Log out
-                 </Menu.Item>
-                 <NavLink to="/profile" exact className="item">
-                   <Menu.Item  className="right aligned"
-                     name="My Profile"/>
                  </NavLink>
-               </Menu.Menu>
-          }
-          </Menu>
-        </div>
+                 <NavLink to="/profile" exact className="item">My Profile</NavLink>
+              </Menu.Menu>}
+        </Menu>
+      </Segment>
     )
   }
 }

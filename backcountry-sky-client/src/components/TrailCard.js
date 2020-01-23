@@ -28,16 +28,19 @@ class TrailCard extends React.Component {
   }
 
 
-    render() {
+  render() {
+    const trail = this.props.trail
+    const showImage = !!trail.imgMedium ? trail.imgMedium : process.env.PUBLIC_URL + 'https://cdn.shopify.com/s/files/1/0231/7685/t/3/assets/no-image-available.png?2214404492633272863';
+
     return (
     <Card style= {{margin: "13px"}}>
       <div className="trail-card">
-        <img className="trail-card-image" alt="oh no!" src= {this.props.trail.imgSmall}/>
-        <h4>{this.props.trail.name}</h4>
+        <img className="trail-card-image" src= { showImage }/>
+        <h4>{trail.name}</h4>
         <strong> Difficulty: {this.difficulty()} </strong><br></br>
-        <strong>Location: </strong> {this.props.trail.location}
+        <strong>Location: </strong> {trail.location}
         <div>
-          <strong>Rating: </strong> {this.props.trail.stars} <Rating icon='star' defaultRating={5} />
+          <strong>Rating: </strong> {trail.stars} <Rating icon='star' defaultRating={5} />
         </div>
       </div>
       <Button
