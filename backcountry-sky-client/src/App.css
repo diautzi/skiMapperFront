@@ -2,10 +2,11 @@
 
 /*///////////////////ABOUT/////////////////// */
 .about {
-  background-image: url("http://www.travelalltogether.com/wp-content/uploads/2014/03/USA-Ski-Resorts-Colorado-Beaver-Creek-Powder-Ski.jpg");
+  background-image: url("https://img5.onthesnow.com/image/xl/13/13984.jpg");
   background-size: cover;
   min-height: 100vh
 }
+
 
 .about h1 {
   margin: 0;
@@ -14,6 +15,12 @@
    left: 50%;
    margin-right: -50%;
    transform: translate(-50%, -50%)
+}
+.about h2 {
+   position: absolute;
+   top:25%;
+   left: 50%;
+   transform: translate(-50%, -50%);
 }
 
 .about button {
@@ -26,11 +33,8 @@
    transform: translate(-50%, -50%)
 }
 
-.explore-button i:hover {
-}
-
 .explore-button {
-  margin-top: 20px !important;
+  margin-top: 50px !important;
 }
 
 .about-card {
@@ -49,19 +53,22 @@ background-color: rgba(0,0,0,0.5) !important;
 
 /*///////////Trail Cards//////////////*/
 
-.hike-card {
-  color: white;
-  display: inline-block;
-  height: 265px;
-  margin: 2.5%;
-  float: left;
-  position: relative;
-  width: 100%;
+.trail-card {
+  margin: 10px;
 }
 
-.hike-card-image {
+.trail-card-image {
+  border-radius: 8px;
+  height: 140px;
   width: 100%;
-  height: 65%;
+  padding: 1%
+}
+
+.trail-details-image {
+  border-radius: 10px;
+  height: 320px;
+  width: 40%;
+  padding: 1%
 }
 
 
@@ -100,4 +107,50 @@ img.profile-pic {
   margin-bottom: 30px;
   font-family: 'Open Sans', sans-serif;
   color: #FF0000;
+}
+@media all and (min-width: 320px) and (max-width: 425px) {
+  /*/////////////ABOUT////////////?*/
+  .about {
+    background-image: url("https://img5.onthesnow.com/image/xl/13/13984.jpg");
+    background-size: cover;
+    min-height: 100vh
+  }
+
+  .about h1 {
+     position: absolute;
+     top:25%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     color: "black";
+  }
+  .about h2 {
+     position: absolute;
+     top:55%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     color: "black"
+  }
+  .explore-button i:hover {
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1000px) {
+
+    /*/////////////ABOUT////////////?*/
+  .about h1 {
+     position: absolute;
+     top:25%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     color: "black";
+  }
+  .about h2 {
+     position: absolute;
+     top:55%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     color: "black"
+  }
+
+      /*/////////////EXPLORE PAGE////////////?*/
 }

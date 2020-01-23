@@ -5,8 +5,8 @@ const mapStyles = {
   map: {
     position: 'absolute',
      width: '40%',
-     height: '42%',
-     marginLeft: '600px',
+     height: "42%",
+     marginLeft: '700px',
      marginBottom: '20px',
      marginTop: "65px"
    }

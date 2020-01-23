@@ -136,11 +136,11 @@ class TrailDetails extends Component {
           <div><MapContainer trail={this.state.trail}/></div>
           <div style={{textAlign: "center"}}>
               <h2>{this.state.trail.name}</h2>
-                <strong>  Difficulty: {this.difficulty()} <br></br> </strong>
+                <strong>  Difficulty: { this.difficulty() } </strong>
           </div>
           <div>
             <div>
-              <Image style={{ borderRadius : "8px", height: "20%", width: "40%", marginLeft: "55px"}} alt="oh no!" src= {this.state.trail.imgMedium} />
+              <img className="trail-details-image" alt="oh no!" src= {this.state.trail.imgMedium} />
             </div>
             <div style={{textAlign: "center"}}>
             <Segment>

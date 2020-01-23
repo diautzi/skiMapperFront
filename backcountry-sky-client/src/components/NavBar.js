@@ -15,7 +15,6 @@ class  NavBar extends Component{
   })
 
   render() {
-      console.log(this.props.currentUser)
     const { activeItem } = this.state
     return (
       <div>

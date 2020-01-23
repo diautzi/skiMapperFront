@@ -30,10 +30,10 @@ class TrailCard extends React.Component {
 
   render() {
     return (
-      <Card style= {{margin: "10px"}}>
-        <div style={{textAlign: "center"}}>
+      <Card style= {{margin: "13px"}}>
+        <div  >
           <div className= "image" >
-            <img style={{ borderRadius : "8px", height: "140px", width: "100%", padding: "1%"}} alt="oh no!" src= {this.props.trail.imgSmall}/>
+            <img className="trail-card-image" alt="oh no!" src= {this.props.trail.imgSmall}/>
           </div>
           <div className="content">
             <div className="header">

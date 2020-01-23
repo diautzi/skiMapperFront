@@ -29,13 +29,13 @@ class Profile extends Component {
    return day + ' ' + monthNames[monthIndex] + ' ' + year;
  }
 
-componentDidMount() {
+  componentDidMount() {
   fetch("http://localhost:3000/api/v1/completed_trails")
   .then(resp => resp.json())
   .then(favTrails => this.setState({
     myTrails: favTrails.filter(trail => trail.user_id == this.props.currentUser.id)
   }))
-}
+  }
 
 
   deleteAccount = (userId) => {
@@ -77,14 +77,12 @@ componentDidMount() {
 
   render() {
    const currentUser = this.props.currentUser;
-
-    let userImage;
+   let userImage;
     if (!!currentUser.image) {
       userImage = currentUser.image;
     } else {
       userImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuz4ys13YZ-pwKXvCP-Hq_39sU9ZhHhM-JLPreXfAOHQKvzzcl';
     }
-
 
     return (
       <div>
@@ -109,9 +107,7 @@ componentDidMount() {
                   </Button>
                 </div>
               </Card.Content>
-
               {this.state.myTrails.length > 0 ? <h3 className="name">My favorite Trails</h3> : ""}
-
             </div>
           </div>
         </div>
