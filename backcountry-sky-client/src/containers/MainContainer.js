@@ -54,7 +54,7 @@ class MainContainer extends Component {
   render() {
     return(
     <div >
-      <Segment inverted color="red" >
+      <Segment inverted color="black" >
         <Search size="large" onSearchChange={this.getSearchInput} placeholder="Search By City Or Trail"/>
       </Segment>
      <div>

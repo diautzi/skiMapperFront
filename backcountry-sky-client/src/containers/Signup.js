@@ -2,6 +2,8 @@
 import React, { Component } from "react";
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import { NavLink } from "react-router-dom"
+import { style } from "../App.css"
+
 
 class Signup extends Component {
 

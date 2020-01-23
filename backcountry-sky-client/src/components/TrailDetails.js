@@ -4,7 +4,7 @@ import Profile from "../components/Profile";
 import { NavLink } from 'react-router-dom';
 import {Card, Icon, Rating, Grid, Form, Button, Segment, Input, Image} from "semantic-ui-react"
 import MapContainer from "../components/MapContainer"
-
+import { style } from "../App.css"
 
 class TrailDetails extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class TrailDetails extends Component {
       comments:[],
       content: "",
       myTrails: [],
-      buttonColor: '#979797'
+      buttonColor: ""
     }
   }
 
@@ -130,72 +130,72 @@ class TrailDetails extends Component {
 
 
   render(){
-    console.log(this.state.content)
     return(
        <div>
-          <div><MapContainer trail={this.state.trail}/></div>
+          <div class= "map"><MapContainer trail={this.state.trail}/></div>
           <div style={{textAlign: "center"}}>
-              <h2>{this.state.trail.name}</h2>
-                <strong>  Difficulty: { this.difficulty() } </strong>
+            <h1>{this.state.trail.name}</h1>
+            <strong> Difficulty: { this.difficulty() } </strong>
           </div>
           <div>
-            <div>
-              <img className="trail-details-image" alt="oh no!" src= {this.state.trail.imgMedium} />
-            </div>
+            <img className="trail-details-image" alt="oh no!" src= {this.state.trail.imgMedium} />
             <div style={{textAlign: "center"}}>
             <Segment>
               { this.props.currentUser ?
                 <>
                 <Button
                   onClick={this.addToFavoritesClick}
-                  color={this.state.buttonColor}
+                  color="red"
+                  inverted
+                  icon="heart"
                   content='Add to Your Completed Trails ..'
-                  icon='heart'
-                  label={{ basic: true, color: 'red'}}
                 />
                 <NavLink to="/home">
-                 <Button color="red" >Explore some more trails</Button>
+                 <Button
+                   color="red"
+                   inverted
+                   content='Explore some more trails'
+                    />
                 </NavLink>
                 </>
                 :
                 <NavLink to="/home">
-                 <Button color="red" >Explore some more</Button>
+                 <Button
+                    color="black"
+                    size='huge'>
+                      Explore some more
+                  </Button>
                 </NavLink>
               }
             </Segment>
           </div>
           <div style={{textAlign: "center"}}>
-              <h2><blockquote>"{this.state.trail.summary}"</blockquote></h2>
-              <h3>🌎 Location: {this.state.trail.location}  </h3>
-              <div>
-                <h3>
-                  Length: {this.state.trail.length} Miles <br></br>
-                  ⛰️ Ascent: {this.state.trail.ascent}' |   ⛰️  Descent: {this.state.trail.descent}' <br></br>
-                </h3>
-              </div>
-              <div>
-                 <h4>Rating:
-                    {this.state.trail.stars} <Rating icon='star' defaultRating={5}/>
-                 </h4>
-              </div>
-            </div>
-            <div class="conditions" style={{marginLeft: "20px"}}>
-              <h3 >Conditions:</h3>
-                  <p> {this.state.trail.conditionStatus} </p>
-                  <p> {this.state.trail.conditionDetails} </p>
-            </div>
-            <br></br>
-            <div class="comments" style={{marginLeft: "20px"}}>
+            <h2><blockquote>"{this.state.trail.summary}"</blockquote></h2>
+            <h2>🌎 Location: {this.state.trail.location}  </h2>
+            <h3>Length: {this.state.trail.length} Miles </h3><br></br>
+            <h3>Descent ⛰️: {this.state.trail.descent}' </h3><br></br>
+            <h4>Rating: {this.state.trail.stars} <Rating icon='star' defaultRating={5}/></h4>
+          </div>
+          <div class="conditions">
+            <h3 >Conditions:</h3>
+              <p> {this.state.trail.conditionStatus} </p>
+              <p> {this.state.trail.conditionDetails} </p>
+          </div>
+          <br></br>
+          <div class="comments">
             <Form onSubmit={this.handleSubmit} >
-                <input onChange={this.handleChange} type="text" placeholder='Leave a thought...' name='content' value={this.state.content}/>
-                <Form.Button>Submit</Form.Button>
+              <input onChange={this.handleChange} type="text" placeholder='Leave a thought...' name='content' value={this.state.content}/>
+              <Button className="submit-btn"
+                color="red">
+                Submit
+              </Button>
             </Form>
-            </div>
-            <br></br>
-            <br></br>
-            {this.state.comments.length >0 ? <h2 style={{marginLeft: "20px", fontColor: "red"}}>Comments</h2> : ""}
-
-            <div key={this.state.comments.id}>
+          </div>
+          <br></br>
+          <br></br>
+          
+          {this.state.comments.length >0 ? <h2 style={{marginLeft: "20px", fontColor: "red"}}>Comments</h2> : ""}
+          <div key={this.state.comments.id}>
             {this.state.comments.map(comment =>
               <Card style={{marginLeft: "40px"}}>
                 {!!this.props.currentUser ? <Card.Content >

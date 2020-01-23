@@ -28,37 +28,26 @@ class TrailCard extends React.Component {
   }
 
 
-  render() {
+    render() {
     return (
-      <Card style= {{margin: "13px"}}>
-        <div  >
-          <div className= "image" >
-            <img className="trail-card-image" alt="oh no!" src= {this.props.trail.imgSmall}/>
-          </div>
-          <div className="content">
-            <div className="header">
-              <h4>{this.props.trail.name}</h4>
-              <div className="extra content">
-                <span>
-                  <strong> Difficulty: {this.difficulty()} </strong>
-                </span>
-            </div>
-          </div>
-          <div className="content" >
-            <div className="header"><strong>Location: </strong> {this.props.trail.location}</div>
-          </div>
-          <div>
-            <span>
-              <strong>Rating: </strong>
-                {this.props.trail.stars} <Rating icon='star' defaultRating={5} />
-            </span>
-          </div>
-          </div>
+    <Card style= {{margin: "13px"}}>
+      <div className="trail-card">
+        <img className="trail-card-image" alt="oh no!" src= {this.props.trail.imgSmall}/>
+        <h4>{this.props.trail.name}</h4>
+        <strong> Difficulty: {this.difficulty()} </strong><br></br>
+        <strong>Location: </strong> {this.props.trail.location}
+        <div>
+          <strong>Rating: </strong> {this.props.trail.stars} <Rating icon='star' defaultRating={5} />
         </div>
-        <Button color="red" center >More details</Button>
-      </Card>
+      </div>
+      <Button
+         color="black"
+         centered >
+          More details
+      </Button>
+    </Card>
     );
-  }
+    }
 
 };
 

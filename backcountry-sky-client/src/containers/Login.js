@@ -2,6 +2,9 @@
 import React, { Component } from "react";
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import {Router, Route, NavLink, Switch } from 'react-router-dom';
+import { style } from "../App.css"
+
+
 
 class Login extends Component {
 
@@ -25,7 +28,7 @@ class Login extends Component {
     return(
      <Grid textAlign='center' style={{ height: '100vh', textColor: "red"}} verticalAlign='middle'>
        <Grid.Column style={{ maxWidth: 450 }}>
-         <Header as='h2' color='red' textAlign='center'>
+         <Header class="name">
            <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuz4ys13YZ-pwKXvCP-Hq_39sU9ZhHhM-JLPreXfAOHQKvzzcl' /> Log-in to your account
          </Header>
          <Form size='large' onSubmit={this.submitForm}>
@@ -46,8 +49,10 @@ class Login extends Component {
                name="password"
              />
 
-             <Button color='red' fluid size='large'>
-               Login
+             <Button
+                color='red'
+                fluid size='large'>
+                Login
              </Button>
            </Segment>
          </Form>

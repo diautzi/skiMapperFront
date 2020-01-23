@@ -5,10 +5,10 @@ const mapStyles = {
   map: {
     position: 'absolute',
      width: '40%',
-     height: "42%",
+     height: "47%",
      marginLeft: '700px',
      marginBottom: '20px',
-     marginTop: "65px"
+     marginTop: "75px"
    }
 };
 
@@ -135,7 +135,7 @@ export class CurrentLocation extends React.Component {
   export default CurrentLocation;
 
   CurrentLocation.defaultProps = {
-    zoom: 14,
+    zoom: 13,
     initialCenter: {
       lat: 38.999983,
       lng: -105.549558

@@ -98,12 +98,19 @@ class Profile extends Component {
               <Card.Content extra>
                 <div >
                 <NavLink to="/edit" exact>
-                  <Button  size='large'  color='green'>
-                    Update Account
+                  <Button
+                      size='large'
+                      color='green'
+                      inverted>
+                      Update Account
                   </Button>
                 </NavLink>
-                  <Button size="large" color='red' onClick={(e) => this.deleteAccount(e)}>
-                   Delete Account
+                  <Button
+                   size="large"
+                   inverted
+                   color='red'
+                   onClick={(e) => this.deleteAccount(e)}>
+                    Delete Account
                   </Button>
                 </div>
               </Card.Content>
@@ -112,11 +119,11 @@ class Profile extends Component {
           </div>
         </div>
         {this.state.myTrails.map(trail =>
-          <div class="ui centered card">
+          <div class="ui centered card fav-trail-name">
             <Card
                 image={trail.trail_image}
                 header={trail.trail_name} />
-            <Button inverted onClick={() => this.deleteTrail(trail.id)}> Delete </Button>
+            <Button color="red" inverted onClick={() => this.deleteTrail(trail.id)}> Delete </Button>
         </div>)}
       </div>
     )

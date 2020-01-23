@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import {Router, Route, NavLink, Switch } from 'react-router-dom';
-
+import { style } from "../App.css"
 
 class UpdateProfile extends Component {
   constructor(props){
@@ -48,7 +48,7 @@ class UpdateProfile extends Component {
     return(
      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
        <Grid.Column style={{ maxWidth: 450 }}>
-         <Header as='h2' color='red' textAlign='center'>
+         <Header className="name">
            <Image src={this.state.currentUser.image} /> Update Your Account
          </Header>
          <Form size='large' onSubmit={this.submitForm}>
@@ -72,7 +72,9 @@ class UpdateProfile extends Component {
               onChange={(e) => this.handleChange(e)}               name="email"
                value={this.state.email}
                placeholder='E-mail address' />
-               <Button color='red' fluid size='large'>
+               <Button color='red'
+                fluid size='large'
+                inverted>
                  Update Info
                </Button>
              <NavLink to="/profile" exact>
