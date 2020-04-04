@@ -1,3 +1,28 @@
+.details {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.0vw;
+  padding: 12px;
+  padding-bottom: 10px;
+  text-align: left;
+  margin-left: 150px;
+}
+
+.comment-form {
+  margin-right: 40px;
+}
+
+.trail-title {
+  margin-bottom: 40px;
+  text-align: center;
+}
+.explore-button {
+  text-align: center;
+  margin: 30px;
+}
+.trail-description {
+  margin-left: 60px;
+  margin-bottom: 30px;
+}
 
 @media all and (min-width: 768px) {
     /*///////////////////Map/////////////////// */
@@ -5,7 +30,8 @@
     position: absolute;
     width: 100%;
     height: 640px;
-    margin-left: 20px;
+    margin-left: 120px;
+    margin-top: 100px;
   }
 
   /*///////////////////ABOUT/////////////////// */
@@ -18,7 +44,7 @@
   .about h1 {
     margin: 0;
      position: absolute;
-     top: 20%;
+     top: 35%;
      left: 50%;
      margin-right: -50%;
      transform: translate(-50%, -50%);
@@ -26,17 +52,18 @@
   }
   .about h2 {
      position: absolute;
-     top:25%;
+     top:40%;
      left: 50%;
      transform: translate(-50%, -50%);
-     color: #000000
+     color: #000000;
+     fontStyle: italic
   }
 
   .about button {
      margin: 0;
      background: blue;
      position: absolute;
-     top: 30%;
+     top: 45%;
      left: 50%;
      margin-right: -50%;
      transform: translate(-50%, -50%)
@@ -63,9 +90,10 @@
   /*///////////Trail Cards//////////////*/
 
   .trail-card {
-    margin: 10px;
+    margin: 8px;
     color: #000000;
     height: 250px;
+    /* margin-left: 200px !important; */
   }
 
   .trail-card-image {
@@ -74,21 +102,25 @@
     width: 100%;
     padding: 1%
   }
-
+  .ui card {
+    margin-left: 20px !important;
+  }
   /*///////////Trail Details//////////////*/
   .conditions {
     margin-left: 20px;
 
   }
   .comments {
-    margin-left: 20px;
-    margin-bottom: 10px;
+    margin-left: 24px;
+    margin-bottom: 2px;
   }
   .submit-btn {
     margin-top: 5px !important
   }
+
   .trail-details {
-    margin: 10px;
+    margin-left:35px;
+    word-spacing: 6px;
   }
 
   .trail-details-image {
@@ -117,6 +149,7 @@
   }
 
   .name {
+    margin-top: 10px;
     font-size: 35px;
     font-weight: 800;
     letter-spacing: .1em;
