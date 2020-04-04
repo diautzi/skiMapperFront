@@ -15,10 +15,12 @@
   margin-bottom: 40px;
   text-align: center;
 }
+
 .explore-button {
   text-align: center;
   margin: 30px;
 }
+
 .trail-description {
   margin-left: 60px;
   margin-bottom: 30px;
@@ -43,13 +45,14 @@
 
   .about h1 {
     margin: 0;
-     position: absolute;
-     top: 35%;
-     left: 50%;
-     margin-right: -50%;
-     transform: translate(-50%, -50%);
-     color: #000000
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    color: #000000
   }
+  
   .about h2 {
      position: absolute;
      top:40%;
@@ -74,17 +77,16 @@
   }
 
   .about-card {
-  height: auto;
-  margin-top: 150px;
-  margin-bottom: auto;
-  padding: 10px;
-  width: 1000px;
-  background-color: rgba(0,0,0,0.5) !important;
+    height: auto;
+    margin-top: 150px;
+    margin-bottom: auto;
+    padding: 10px;
+    width: 1000px;
+    background-color: rgba(0,0,0,0.5) !important;
   }
 
   .about-msg {
     color: white;
-
   }
 
   /*///////////Trail Cards//////////////*/
@@ -102,14 +104,17 @@
     width: 100%;
     padding: 1%
   }
+  
   .ui card {
     margin-left: 20px !important;
   }
+  
+  
   /*///////////Trail Details//////////////*/
   .conditions {
     margin-left: 20px;
-
   }
+  
   .comments {
     margin-left: 24px;
     margin-bottom: 2px;
@@ -222,6 +227,7 @@
      transform: translate(-50%, -50%);
      color: "black";
   }
+  
   .about h2 {
      position: absolute;
      top:55%;
