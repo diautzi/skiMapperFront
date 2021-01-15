@@ -20,8 +20,8 @@ class App extends Component {
       users: [],
       currentUser: '',
       myTrails: []
-    }
-  }
+    };
+  };
 
   componentDidMount(){
     let token = localStorage.getItem("token");
