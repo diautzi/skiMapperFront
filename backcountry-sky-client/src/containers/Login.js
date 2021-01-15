@@ -35,7 +35,8 @@ class Login extends Component {
            <Segment stacked>
              <Form.Input
               onChange={this.handleChange}
-              fluid icon='user' iconPosition='left'
+              fluid icon='user'
+              iconPosition='left'
               placeholder='E-mail address'
               name="email"
              />
@@ -48,7 +49,6 @@ class Login extends Component {
                type='password'
                name="password"
              />
-
              <Button
                 color='red'
                 fluid size='large'>

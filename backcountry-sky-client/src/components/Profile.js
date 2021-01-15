@@ -30,7 +30,7 @@ class Profile extends Component {
  }
 
   componentDidMount() {
-  fetch("http://localhost:3000/api/v1/completed_trails")
+  fetch("https://serene-lake-00689.herokuapp.com/api/v1/completed_trails")
   .then(resp => resp.json())
   .then(favTrails => this.setState({
     myTrails: favTrails.filter(trail => trail.user_id == this.props.currentUser.id)
@@ -42,7 +42,7 @@ class Profile extends Component {
     let id = userId
     id = `${this.props.currentUser.id}`
     console.log(id)
-    fetch(`http://localhost:3000/api/v1/users/${id}`, {
+    fetch(`https://serene-lake-00689.herokuapp.com/api/v1/users/${id}`, {
       method: "DELETE",
       headers: {
         'Content-Type': "application/json",
@@ -58,7 +58,7 @@ class Profile extends Component {
   }
 
   deleteTrail = (id) => {
-    fetch(`http://localhost:3000/api/v1/completed_trails/${id}`, {
+    fetch(`https://serene-lake-00689.herokuapp.com/api/v1/completed_trails/${id}`, {
       method: "DELETE",
       headers: {
         'Content-Type': "application/json",

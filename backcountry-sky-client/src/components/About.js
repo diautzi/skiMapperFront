@@ -1,30 +1,30 @@
-import React, { Component } from "react";
+import React from 'react';
 import { Button } from 'semantic-ui-react';
 import { NavLink } from "react-router-dom";
-import style from "../App.css"
 
+// import components
+import WelcomeFooter from './WelcomeFooter';
 
+// ABOUT CONTAINER
 
-class  About extends Component {
-
-    render() {
-      return(
-        <div class="about">
-          <h1>WELCOME TO ⛷️MAPPER! </h1>
-          <h2>"LIVE YOUR LIFE, AND ENJOY LIVING IT"</h2>
-          <NavLink
-            to="/home" exact >
+export default function Welcome() {
+  return (
+    <div>
+      <div className='wrapper'>
+        <p className='title'>WELCOME TO <span role="img" aria-label="Snowman">⛷️</span>SKIMAPPER!</p>
+        <NavLink to="/trails" exact >
           <Button
             className="explore-button"
             size='huge'
             inverted
             color='black'
-            content='Set focused' >Start your adventure
+            content='Set focused'
+          >
+            Find your favourite trails!
           </Button>
-          </NavLink>
-        </div>
-        )
-      }
-    }
-
-export default About;
+        </NavLink>
+      </div>
+      <WelcomeFooter />
+    </div>
+    )
+}

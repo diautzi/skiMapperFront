@@ -27,20 +27,37 @@ class TrailCard extends React.Component {
     return level;
   }
 
+  displayStars = () => {
+     let stars = ''
+     if (this.props.trail.stars === 5) {
+       stars = '★★★★★'
+     } else if (this.props.trail.stars >= 4 && this.props.trail.stars < 5) {
+       stars = '★★★★☆'
+     } else if (this.props.trail.stars >= 3 && this.props.trail.stars < 4) {
+       stars = '★★★☆☆'
+     } else if (this.props.trail.stars >= 2 && this.props.trail.stars < 3) {
+       stars = '★★☆☆☆'
+     } else if (this.props.trail.stars >= 1 && this.props.trail.stars < 2) {
+       stars = '★☆☆☆☆'
+     } else {
+       stars = "no rating yet"
+     }
+     return stars;
+   }
+
 
   render() {
     const trail = this.props.trail
     const showImage = !!trail.imgMedium ? trail.imgMedium : process.env.PUBLIC_URL + 'https://cdn.shopify.com/s/files/1/0231/7685/t/3/assets/no-image-available.png?2214404492633272863';
-
     return (
-    <Card style= {{margin: "13px"}}>
+    <Card style= {{marginLeft: "53px", marginTop: "20px"}}>
       <div className="trail-card">
-        <img className="trail-card-image" src= { showImage }/>
+        <img className="trail-card-image" src= { showImage } alt="skiImage"/>
         <h4>{trail.name}</h4>
         <strong> Difficulty: {this.difficulty()} </strong><br></br>
         <strong>Location: </strong> {trail.location}
         <div>
-          <strong>Rating: </strong> {trail.stars} <Rating icon='star' defaultRating={5} />
+          <strong>Rating: {this.displayStars()} </strong>
         </div>
       </div>
       <Button

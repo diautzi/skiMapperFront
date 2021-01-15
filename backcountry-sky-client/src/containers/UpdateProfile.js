@@ -23,8 +23,8 @@ class UpdateProfile extends Component {
   submitForm = (e, id) => {
     e.preventDefault();
     id = `${this.props.currentUser.id}`
-    // console.log(id)
-    fetch(`http://localhost:3000/api/v1/users/${id}`, {
+
+    fetch(`https://serene-lake-00689.herokuapp.com/api/v1/users/${id}`, {
       method: "PATCH", mode: "cors",
       headers: {
          "Content-Type": "application/json",
@@ -51,34 +51,33 @@ class UpdateProfile extends Component {
          <Header className="name">
            <Image src={this.state.currentUser.image} /> Update Your Account
          </Header>
-         <Form size='large' onSubmit={this.submitForm}>
-           <Segment stacked>
+          <Form size='large' onSubmit={this.submitForm}>
+           <Segment >
              <Form.Input
-              className="form-control"
                onChange={(e) => this.handleChange(e)}
-               type="text"
                name="name"
                value={this.state.name}
                placeholder='Name '/>
              <Form.Input
-                onChange={(e) => this.handleChange(e)}               name="image"
-                 value={this.state.image}
-                 placeholder='Image URL' />
+                onChange={(e) => this.handleChange(e)}
+                name="image"
+                value={this.state.image}
+                placeholder='Image URL' />
              <Form.Input
-              onChange={(e) => this.handleChange(e)}               name="location"
-               value={this.state.location}
-               placeholder='Location' />
+                 onChange={(e) => this.handleChange(e)}
+                 name="location"
+                 value={this.state.location}
+                 placeholder='Location' />
              <Form.Input
-              onChange={(e) => this.handleChange(e)}               name="email"
-               value={this.state.email}
-               placeholder='E-mail address' />
-               <Button color='red'
+                 onChange={(e) => this.handleChange(e)}
+                 name="email"
+                 value={this.state.email}
+                 placeholder='E-mail address' />
+              <Button color='red'
                 fluid size='large'
                 inverted>
-                 Update Info
-               </Button>
-             <NavLink to="/profile" exact>
-             </NavLink>
+                Update Info
+              </Button>
            </Segment>
          </Form>
        </Grid.Column>
