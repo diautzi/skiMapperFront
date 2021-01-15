@@ -107,13 +107,11 @@ class App extends Component {
   updateProfile = (e, id) => {
     e.preventDefault();
     id = `${this.props.currentUser.id}`
-    // console.log(id)
     fetch(`https://serene-lake-00689.herokuapp.com/api/v1/users/${id}`, {
       method: "PATCH", mode: "cors",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json",
-        // "Access-Control-Allow-Origin" :"https://serene-lake-00689.herokuapp.com"
       },
       body: JSON.stringify({
         name: this.state.name,
