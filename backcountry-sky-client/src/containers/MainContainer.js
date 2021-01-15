@@ -1,13 +1,6 @@
-
-import React, { Component } from "react"
-// import HomeScreen from "../components/HomeScreen"
-import {Router, Route, Link, Switch, NavLink } from 'react-router-dom';
-import About from "../components/TrailCard"
-import Login from "../containers/Login"
-import TrailsList from "../containers/TrailsList"
-import { Search, Segment } from "semantic-ui-react"
-import TrailDetails from "../components/TrailDetails"
-
+import React, { Component } from "react";
+import TrailsList from "../containers/TrailsList";
+import { Search, Segment } from "semantic-ui-react";
 
 class MainContainer extends Component {
   constructor() {
@@ -17,22 +10,22 @@ class MainContainer extends Component {
       search: ""
     }
      this.server = "http://localhost:3000//api/v1/trails"
-  }
+  };
 
   getSearchInput = (e, {value} ) => {
     this.setState({
       search: value
     })
-  }
+  };
 
    componentDidMount() {
-     fetch("http://localhost:3000//api/v1/trails")
+     fetch(this.server)
      .then(resp => resp.json())
      .then(data => this.setState({
        trails: data.trails
      })
     )
-   }
+   };
 
   desiredTrails = () => {
      let tempTrails = [...this.state.trails]
@@ -48,21 +41,18 @@ class MainContainer extends Component {
        }
      })
      return filteredTrails
-   }
-
+   };
 
   render() {
     return(
-    <div >
-      <Segment inverted color="black" >
-        <Search size="large" onSearchChange={this.getSearchInput} placeholder="Search By City Or Trail"/>
-      </Segment>
-     <div>
-      {
-        <TrailsList trails={this.desiredTrails()} />
-      }
-     </div>
-    </div>
+      <div >
+        <Segment inverted color="black" >
+          <Search size="large" onSearchChange={this.getSearchInput} placeholder="Search By City Or Trail"/>
+        </Segment>
+        <div>
+          <TrailsList trails={this.desiredTrails()}/>
+        </div>
+      </div>
     )
   }
 }
