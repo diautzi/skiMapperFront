@@ -9,7 +9,7 @@ class MainContainer extends Component {
       trails: [],
       search: ""
     }
-     this.server = "http://localhost:3000//api/v1/trails"
+     this.server = "https://skimapper-api.herokuapp.com/"
   };
 
   getSearchInput = (e, {value} ) => {

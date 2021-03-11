@@ -9,18 +9,16 @@ import { style } from "../App.css"
 class TrailDetails extends Component {
   constructor(props) {
     super();
-    this.state= {
-      trail:[],
-      comments:[],
+    this.state = {
+      trail: [],
+      comments: [],
       content: "",
       myTrails: [],
       buttonColor: ""
-    }
-  }
-
+    };
+  };
 
 ////////////// for intorductory description ////////////////
-
   difficulty = () => {
     let level;
     if (this.state.trail.difficulty === "blue") {
@@ -40,7 +38,6 @@ class TrailDetails extends Component {
     }
     return level;
   }
-
 
 /////////// for trail description details ////////////
   difficultyLevel = () => {
