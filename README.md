@@ -1,4 +1,4 @@
-# SkiMapperFront
+# SkiMapper-Frontend
 ![SkiMapper](https://github.com/diautzi/SkiMapperFront/blob/master/welcomePage.png)
 
 # Technical Details 
