@@ -10,5 +10,25 @@
 - Used serializer to format the JSON file.
 - APIs: The Powder Project Data API and Google Maps API
 
+# Installation 
+- Fork an clone the project frontend: 
+  [https://github.com/diautzi/SkiMapper-Frontend](https://github.com/diautzi/SkiMapper-Frontend)
+ - Fork an clone the project backend: 
+  [https://github.com/diautzi/skiMapper](https://github.com/diautzi/skiMapper)
+ - In your terminal, go to skiMapper:
+ 
+      ```
+      $ rails db:create
+      $ rails db:migrate
+      $ rails s
+      ```
+ The server will start on http://localhost:3000
+- In your terminal ```cd.. ``` into SkiMapper-Frontend 
+    ``` 
+    $ npm install
+    $ npm start
+    ```
+The react app will run on http://localhost:3001
+
 # Demo 
 [SkiMapper](https://skimapper.herokuapp.com/)
