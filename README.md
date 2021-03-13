@@ -25,13 +25,13 @@ Platform connecting backcountry skiers with trails, where they can search trails
       $ rails db:migrate
       $ rails s
       ```
- The server will start on http://localhost:3000
+ The server will start on http://localhost:3001
 - In your terminal ```cd.. ``` into SkiMapper-Frontend 
     ``` 
     $ npm install
     $ npm start
     ```
-The react app will run on http://localhost:3001
+The react app will run on http://localhost:3000
 
 # Demo 
 [SkiMapper](https://skimapper.herokuapp.com/)
