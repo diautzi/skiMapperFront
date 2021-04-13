@@ -1,6 +1,6 @@
 import React, { Component }from "react";
 import { Menu, Segment } from 'semantic-ui-react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 class  NavBar extends Component{
   constructor(props) {
@@ -15,6 +15,7 @@ class  NavBar extends Component{
   });
 
   render() {
+    console.log(this.props)
     return (
       <Segment inverted vertical>
         <Menu inverted pointing secondary>
@@ -30,10 +31,13 @@ class  NavBar extends Component{
           </Menu.Item>
           {this.props.currentUser ?
             <Menu.Menu position="right">
-              <Menu.Item onClick={this.props.logout}>
-                {/* <NavLink className="item" >
+              <Menu.Item>
+                {`Welcome, ${this.props.currentUser.name}`}
+              </Menu.Item>
+              <Menu.Item>
+                <Link className="item" onClick={this.props.logout}>
                   Log out
-                </NavLink> */}
+                </Link>
               </Menu.Item>
               <Menu.Item>
                 <NavLink to="/profile" exact className="item">

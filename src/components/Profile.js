@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import style from "../App.css";
 import { Button, Card } from "semantic-ui-react";
 import { NavLink } from 'react-router-dom';
 
 class Profile extends Component {
-
-  state = {
-    myTrails: [],
-    currentUser: this.props.currentUser
-  };
+  constructor(props) {
+    super()
+    this.state = {
+      myTrails: [],
+      currentUser: props.currentUser,
+      currentUserImage: ''
+    };
+  }
 
   createdAt = (date) => {
     let d = new Date(date)
@@ -72,52 +74,48 @@ class Profile extends Component {
 
   render() {
     const currentUser = this.props.currentUser;
-    let userImage;
-    if (!!currentUser.image) {
-      userImage = currentUser.image;
-    } else {
-      userImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuz4ys13YZ-pwKXvCP-Hq_39sU9ZhHhM-JLPreXfAOHQKvzzcl';
-    };
-
     return (
       <div>
-        <div style={{ textAlign: "center" }}>
-          <div className='profile-container'>
-            <img className="profile-pic" src={userImage} alt="Add-a-profile-pic" />
-            <div className='user-data'>
-              <div className="name">{currentUser.name}</div><br></br>
-              <div className="user-location" > 🌎 {currentUser.location ? currentUser.location : ""} </div><br></br>
-              <div className="user-registration-date">Member since: {this.createdAt(currentUser.created_at)}</div>
-              <div className="user-registration-date"> Conquered: {this.state.myTrails.length} Peaks </div>
-              <br></br>
-              <Card.Content extra>
-                <div >
-                  <NavLink to="/edit" exact>
+        { currentUser ?
+          <div style={{ textAlign: "center" }}>
+            <div className='profile-container'>
+              <img className="profile-pic" src={currentUser.image ? currentUser : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuz4ys13YZ-pwKXvCP-Hq_39sU9ZhHhM-JLPreXfAOHQKvzzcl'} alt="Add-a-profile-pic" />
+              <div className='user-data'>
+                <div className="name">{currentUser.name}</div><br></br>
+                <div className="user-location" > 🌎 {currentUser.location ? currentUser.location : ""} </div><br></br>
+                <div className="user-registration-date">Member since: {this.createdAt(currentUser.created_at)}</div>
+                <div className="user-registration-date"> Conquered: {this.state.myTrails.length} Peaks </div>
+                <br></br>
+                <Card.Content extra>
+                  <div >
+                    <NavLink to="/edit" exact>
+                      <Button
+                        size='large'
+                        color='green'
+                        inverted>
+                        Update Account
+                      </Button>
+                    </NavLink>
                     <Button
-                      size='large'
-                      color='green'
-                      inverted>
-                      Update Account
+                      size="large"
+                      inverted
+                      color='red'
+                      onClick={(e) => this.deleteAccount(e)}>
+                      Delete Account
                     </Button>
-                  </NavLink>
-                  <Button
-                    size="large"
-                    inverted
-                    color='red'
-                    onClick={(e) => this.deleteAccount(e)}>
-                    Delete Account
-                  </Button>
-                </div>
-              </Card.Content>
-              {
-                this.state.myTrails.length > 0
-                  ?
-                  <h3 className="name">My favorite Trails</h3>
-                  : ""
-              }
+                  </div>
+                </Card.Content>
+                {
+                  this.state.myTrails.length > 0
+                    ?
+                    <h3 className="name">My favorite Trails</h3>
+                    : ""
+                }
+              </div>
             </div>
           </div>
-        </div>
+          :
+          null}
         {
           this.state.myTrails.map(trail =>
           <div class="ui centered card fav-trail-name">

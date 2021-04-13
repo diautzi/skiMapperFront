@@ -76,7 +76,7 @@ class App extends Component {
       currentUser: null
     })
     localStorage.removeItem("token")
-    this.props.history.push("/home")
+    this.props.history.push("/login")
   };
 
   login = (email, password) => {
