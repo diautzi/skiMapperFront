@@ -190,10 +190,7 @@ class TrailDetails extends Component {
 
     return(
        <div>
-          <div class= "map">
-            <MapContainer trail={trail}/>
-          </div>
-      
+          <MapContainer trail={trail}/>
           <div className= "trail-title">
             <h1>{trail.name}</h1>
             <h2 style={{fontStyle: 'italic'}}><strong>"{ trail.summary }."</strong><br></br></h2>

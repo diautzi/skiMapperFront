@@ -3,13 +3,24 @@ import ReactDOM from 'react-dom';
 
 const mapStyles = {
   map: {
+    // position: 'absolute',
+    // width: '60%',
+    // height: '60%',
+    // marginLeft: '700px',
+    // marginBottom: '0px',
+    // marginTop: '65px',
+    // justifyContent: 'center',
     position: 'absolute',
-     width: '60%',
-     height: '60%',
-     marginLeft: '700px',
-     marginBottom: '0px',
-    marginTop: '45px',
-    justifyContent: 'center',
+    left: '970px',
+    width: '30%',
+    height: '90%',
+    marginBottom: '30px',
+    marginTop: '40px',
+    borderRadius: '0px',
+    color: 'black',
+    webkitBoxShadow: "1px 3px 1px #9E9E9E",
+    mozBoxShadow: "1px 3px 1px #9E9E9E",
+    boxShadow: "1px 3px 1px #9E9E9E"
    }
 };
 

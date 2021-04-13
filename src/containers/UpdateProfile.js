@@ -41,6 +41,7 @@ class UpdateProfile extends Component {
       .then(resp => this.setState({
         currentUser: resp
       }))
+      this.props.history.push('/profile')
   };
 
   render() {
@@ -72,9 +73,12 @@ class UpdateProfile extends Component {
                 name="email"
                 value={this.state.email}
                 placeholder='E-mail address' />
-              <Button color='red'
+              <Button
+                type="submit"
+                color='red'
                 fluid size='large'
-                inverted>
+                inverted
+              >
                 Update Info
               </Button>
             </Segment>

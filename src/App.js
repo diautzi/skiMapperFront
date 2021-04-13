@@ -139,7 +139,7 @@ class App extends Component {
           <Route exact path="/login" render={(props) => <Login {...props}  login={this.login} /> } />
           <Route exact path="/signup" render={(props) => <Signup {...props} signup={this.signup} /> } />
           <Route exact path="/edit" render={(props) => <UpdateProfile {...props} currentUser={this.state.currentUser} updateProfile={this.updateProfile} />} />
-          <Route exact path="/:username" render={(props) => <Profile {...props} currentUser={this.state.currentUser} logout={this.logout} /> } />
+          <Route exact path="/:profile" render={(props) => <Profile {...props} currentUser={this.state.currentUser} logout={this.logout} /> } />
         </Switch>
        </div>
     );
