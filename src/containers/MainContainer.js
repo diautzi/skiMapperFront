@@ -9,7 +9,7 @@ class MainContainer extends Component {
       trails: [],
       search: ""
     };
-     this.server = "https://skimapper-api.herokuapp.com/"
+     this.server = "https://serene-lake-00689.herokuapp.com/"
   };
 
   getSearchInput = (e, {value} ) => {

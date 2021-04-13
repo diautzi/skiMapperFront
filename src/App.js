@@ -32,7 +32,7 @@ class App extends Component {
         }
       })
       .then(res => res.json())
-      .then((response) => {
+      .then((response) => {console.log("********", response)
         this.setState({
           currentUser: response
         })
@@ -41,33 +41,34 @@ class App extends Component {
   };
 
   signup = ({ name, email, image, location, password, passwordConfirmation }) => {
-    // if (password === passwordConfirmation) {
-    fetch("https://serene-lake-00689.herokuapp.com//api/v1/users", {
-      method: "POST",
-      headers: {
-        'Content-Type': "application/json",
-        'Accept': "application/json"
-      },
-      body: JSON.stringify({
-        name: name,
-        email: email,
-        image: image,
-        location: location,
-        password: password
-      })
-    })
-    .then(res => res.json())
-    .then((response) => {
-      if (response.errors) {
-        alert(response.errors)
-      } else {
-        localStorage.setItem("token", response.token)
-        this.setState({
-          currentUser: response.user
+    if (password === passwordConfirmation) {
+      fetch("https://serene-lake-00689.herokuapp.com//api/v1/users", {
+        method: "POST",
+        headers: {
+          'Content-Type': "application/json",
+          'Accept': "application/json"
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          image: image,
+          location: location,
+          password: password
         })
-        this.props.history.push("/profile")
-      }
-    })
+      })
+        .then(res => res.json())
+        .then((response) => {
+          if (response.errors) {
+            alert(response.errors)
+          } else {
+            localStorage.setItem("token", response.token)
+            this.setState({
+              currentUser: response.user
+            })
+            this.props.history.push("/profile")
+          }
+        })
+    };
   };
 
   logout = () => {
@@ -75,7 +76,7 @@ class App extends Component {
       currentUser: null
     })
     localStorage.removeItem("token")
-    this.props.history.push("/login")
+    this.props.history.push("/home")
   };
 
   login = (email, password) => {

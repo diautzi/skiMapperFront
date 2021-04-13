@@ -1,9 +1,7 @@
-
 import React, {Component} from "react";
 import { NavLink } from 'react-router-dom';
 import {Card, Grid, Form, Button, Segment, Input, Image} from "semantic-ui-react"
 import MapContainer from "../components/MapContainer"
-import { style } from "../App.css"
 
 class TrailDetails extends Component {
   constructor(props) {

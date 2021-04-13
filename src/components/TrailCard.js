@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, Button } from "semantic-ui-react";
-import { style } from "../App.css";
 
 class TrailCard extends React.Component {
 

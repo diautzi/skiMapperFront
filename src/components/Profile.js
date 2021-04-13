@@ -71,8 +71,8 @@ class Profile extends Component {
   };
 
   render() {
-   const currentUser = this.props.currentUser;
-   let userImage;
+    const currentUser = this.props.currentUser;
+    let userImage;
     if (!!currentUser.image) {
       userImage = currentUser.image;
     } else {

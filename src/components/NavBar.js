@@ -3,9 +3,11 @@ import { Menu, Segment } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
 class  NavBar extends Component{
-
-  state = {
+  constructor(props) {
+    super(props)
+    this.state = {
     activeItem: "home"
+    }
   };
 
   handleItemClick = (e, { name }) => this.setState({
@@ -26,7 +28,20 @@ class  NavBar extends Component{
               Trails
             </NavLink>
           </Menu.Item>
-          {!this.props.currentUser ?
+          {this.props.currentUser ?
+            <Menu.Menu position="right">
+              <Menu.Item onClick={this.props.logout}>
+                {/* <NavLink className="item" >
+                  Log out
+                </NavLink> */}
+              </Menu.Item>
+              <Menu.Item>
+                <NavLink to="/profile" exact className="item">
+                  My Profile
+                </NavLink>
+              </Menu.Item>
+            </Menu.Menu>
+            :
             <Menu.Menu position="right" className="item">
               <Menu.Item>
                 <NavLink to="/login" exact className="item">
@@ -36,22 +51,6 @@ class  NavBar extends Component{
               <Menu.Item>
                 <NavLink to="/signup" exact className="item">
                   SignUp
-                </NavLink>
-              </Menu.Item>
-            </Menu.Menu>
-            :
-            <Menu.Menu position="right">
-              <Menu.Item>
-                {`Welcome, ${this.props.currentUser.name}!`}
-              </Menu.Item>
-              <Menu.Item>
-                <NavLink className="item" onClick={this.props.logout}>
-                  Log out
-                </NavLink>
-              </Menu.Item>
-              <Menu.Item>
-                <NavLink to="/profile" exact className="item">
-                  My Profile
                 </NavLink>
               </Menu.Item>
             </Menu.Menu>
