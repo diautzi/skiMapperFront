@@ -5,11 +5,11 @@ Platform connecting backcountry skiers with trails, where users can:
 -  add them to their favorite trails
 -  signup/login into their accounts
 -  post comments about favorite trails and check trail details, including Google Maps location
-Built with RESTful API architecture and CRUD functionalities.
 
 ![SkiMapper](https://github.com/diautzi/SkiMapperFront/blob/master/welcomePage.png)
 
 # Technical Details 
+- Back-end built with RESTful API architecture and CRUD functionalities.
 - Front-end built with React and React Router.
 - Styling with pure CSS and Semantic UI.
 - PostgreSQL database.
