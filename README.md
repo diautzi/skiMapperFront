@@ -1,6 +1,11 @@
 # SkiMapper-Frontend
 
-Platform connecting backcountry skiers with trails, where they can search trails by name and by location, can add them to their favorite trails. Users can post comments about favorite trails and see all details including Google Maps location. Built with RESTful API architecture and CRUD functionalities.
+Platform connecting backcountry skiers with trails, where users can:
+- search trails by name and by location
+-  add them to their favorite trails
+-  signup/login into their accounts
+-  post comments about favorite trails and check trail details, including Google Maps location
+Built with RESTful API architecture and CRUD functionalities.
 
 ![SkiMapper](https://github.com/diautzi/SkiMapperFront/blob/master/welcomePage.png)
 
